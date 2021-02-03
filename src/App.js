@@ -1,18 +1,22 @@
-import React from "react"
-import logo from "./logo.svg"
-import "./App.css"
-import Header from "./components/Header/Header"
+import React from "react";
+import "./App.css";
+import Header from "./components/Header/Header";
+import { Switch, Route } from "react-router-dom";
+import HomePage from "./Containers/HomePage/HomePage";
+import AboutUs from "./Containers/AboutUs/AboutUs";
+import ErrorPage from "./Containers/ErrorPage/ErrorPage";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="name">Jean-Christophe Robertson's personal website!</p>
-      </header>
+      <Switch>
+        <Route path="/" component={HomePage} exact />
+        <Route path="/" component={AboutUs} exact />
+        <Route path="/" component={ErrorPage} exact />
+      </Switch>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
